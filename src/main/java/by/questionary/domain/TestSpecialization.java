@@ -1,18 +1,23 @@
 package by.questionary.domain;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "test_specialization")
+@Data(staticConstructor = "of")
+@NoArgsConstructor(force = true)
 public class TestSpecialization {
 
     @Id
+    @Column(unique = true)
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Long id;
 
     @OneToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinColumn(name = "test_id")
-    @Column(nullable = false)
     private Test test;
 
     @Column(nullable = false)

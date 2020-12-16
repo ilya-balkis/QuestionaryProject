@@ -20,7 +20,7 @@ public class UserService implements UserServiceInterface, UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
-        return userRepository.findByUserName(name);
+        return userRepository.findByName(name);
     }
 
 }

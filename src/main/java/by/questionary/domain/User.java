@@ -21,8 +21,9 @@ import java.util.Set;
 public class User implements UserDetails {
 
     @Id
+    @Column(unique = true)
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Long id;
 
     @Column(nullable = false, unique = true)
     @NotBlank(message = "Please fill field name")
@@ -41,21 +42,21 @@ public class User implements UserDetails {
 
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
     @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
-    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
     private Set<Role> roles;
 
     @Column(nullable = false)
     private int passwordCode;
 
     @Column(nullable = false, unique = true)
-    private int activationCode;
+    private String activationCode;
 
     @Column(nullable = false)
     private boolean activated;
 
     @Column(nullable = false)
     @Temporal(TemporalType.DATE)
-    private Date date;
+    private Date registrationDate;
 
     @OneToMany(mappedBy = "creator", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
     private transient List<Test> tests;

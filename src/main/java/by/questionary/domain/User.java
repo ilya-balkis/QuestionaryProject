@@ -1,7 +1,6 @@
 package by.questionary.domain;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,8 +15,8 @@ import java.util.Set;
 
 @Entity
 @Table(name = "users")
-@Data(staticConstructor = "of")
-@NoArgsConstructor(force = true)
+@Data
+@NoArgsConstructor
 public class User implements UserDetails {
 
     @Id
@@ -37,7 +36,7 @@ public class User implements UserDetails {
 
     @Column(nullable = false)
     @NotBlank(message = "Please fill field password")
-    @Length(min = 8, max = 20, message = "Name must be 6 or 20 symbols")
+    @Length(min = 6, max = 20, message = "Password must be 6 or 20 symbols")
     private String password;
 
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
@@ -48,7 +47,7 @@ public class User implements UserDetails {
     @Column(nullable = false)
     private int passwordCode;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = true, unique = true)
     private String activationCode;
 
     @Column(nullable = false)

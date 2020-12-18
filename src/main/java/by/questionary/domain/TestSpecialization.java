@@ -7,8 +7,8 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "test_specialization")
-@Data(staticConstructor = "of")
-@NoArgsConstructor(force = true)
+@Data
+@NoArgsConstructor
 public class TestSpecialization {
 
     @Id

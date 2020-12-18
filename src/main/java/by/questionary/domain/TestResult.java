@@ -8,8 +8,8 @@ import java.util.List;
 
 @Entity
 @Table(name = "test_result")
-@Data(staticConstructor = "of")
-@NoArgsConstructor(force = true)
+@Data
+@NoArgsConstructor
 public class TestResult {
 
     @Id

@@ -8,8 +8,8 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "answer")
-@Data(staticConstructor = "of")
-@NoArgsConstructor(force = true)
+@Data
+@NoArgsConstructor
 public class Answer {
 
     @Id

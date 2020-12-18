@@ -10,8 +10,8 @@ import java.util.List;
 
 @Entity
 @Table(name = "question")
-@Data(staticConstructor = "of")
-@NoArgsConstructor(force = true)
+@Data
+@NoArgsConstructor
 public class Question {
 
     @Id

@@ -11,8 +11,8 @@ import java.util.List;
 
 @Entity
 @Table(name = "test")
-@Data(staticConstructor = "of")
-@NoArgsConstructor(force = true)
+@Data
+@NoArgsConstructor
 public class Test {
 
     @Id

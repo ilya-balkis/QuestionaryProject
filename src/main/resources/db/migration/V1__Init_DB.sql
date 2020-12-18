@@ -49,7 +49,7 @@ create table user_role (
 create table users (
     id int8 not null,
     activated boolean not null,
-    activation_code varchar(255) not null,
+    activation_code varchar(255),
     email varchar(255) not null,
     name varchar(30) not null,
     password varchar(20) not null,

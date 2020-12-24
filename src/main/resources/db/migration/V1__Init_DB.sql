@@ -53,7 +53,7 @@ create table users (
     email varchar(255) not null,
     name varchar(30) not null,
     password varchar(20) not null,
-    password_code int4 not null,
+    password_code int4,
     registration_date date not null,
     primary key (id));
 
